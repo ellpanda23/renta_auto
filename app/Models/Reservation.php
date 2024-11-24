@@ -9,6 +9,12 @@ class Reservation extends Model
 {
     use HasFactory;
 
+    const PENDING = 'pending';
+    const CONFIRMED = 'confirmed';
+    const COMPLETED = 'completed';
+    const CANCELLED = 'cancelled';
+
+
     protected $fillable = [
         'car_id',
         'customer_id',
@@ -35,4 +41,10 @@ class Reservation extends Model
     {
         return $this->hasOne(Payment::class);
     }
+
+    public function getCustomerReservationAttribute()
+    {
+        return $this->customer->name . ' | ' . $this->car->brand . ' | ' . $this->car->license_plate . ' | ' . $this->car->year . ' | ' . $this->status . ' | ' . $this->total_cost;
+    }
+
 }

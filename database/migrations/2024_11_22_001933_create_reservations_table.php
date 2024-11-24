@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Reservation;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->decimal('total_cost', 8, 2);
-            $table->string('status')->default('pending'); // pending, confirmed, completed, cancelled
+            $table->enum('status', [Reservation::PENDING, Reservation::COMPLETED, Reservation::CONFIRMED, Reservation::CANCELLED])->default(Reservation::PENDING); // pending, confirmed, completed, cancelled
 
             $table->timestamps();
         });

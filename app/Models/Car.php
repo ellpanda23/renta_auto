@@ -25,4 +25,11 @@ class Car extends Model
     {
         return $this->hasMany(Reservation::class);
     }
+
+    protected $appends = ['brand_model'];
+
+    public function getBrandModelAttribute()
+    {
+        return $this->brand . ' ' . $this->model . ' | ' . $this->license_plate . ' | ' . $this->year;
+    }
 }
