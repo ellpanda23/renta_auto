@@ -15,7 +15,7 @@
     <div class="container">
         <div class="absolute w-11/12 p-4 -mt-20 md:w-[1450px] card">
 
-            <div class="md:flex md:gap-6">
+            <div class="md:grid md:grid-cols-5 md:gap-6">
                 <div class="form-group">
                     <label for="" class="form-label">Type</label>
                     <select name="type" class="form-control" id="">
@@ -40,14 +40,14 @@
                         class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-100 border border-gray-100 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-400">
                 </div>
 
-                <button class="w-full md:w-20 btn btn-primary"><i class="fas fa-search"></i> Buscar</button>
+                <button class="w-full btn btn-primary"><i class="fas fa-search"></i> Buscar</button>
             </div>
 
         </div>
     </div>
 
     <div class="h-screen bg-gray-100">
-        <div class="pt-[24rem]">
+        <div class="pt-[24rem] md:pt-16">
             <section class="container mt-4">
 
                 <h1 class="py-3 text-2xl font-semibold text-gray-600">Autos disponibles</h1>
@@ -56,7 +56,8 @@
 
                     <div class="flex gap-6 md:grid md:grid-cols-4">
 
-                        <div class="p-2 md:max-w-xs duration-150 bg-white rounded-lg shadow cursor-pointer min-w-[350px] ">
+                        <div
+                            class="p-2 md:max-w-xs duration-150 bg-white rounded-lg shadow cursor-pointer min-w-[350px] ">
                             <img class="object-cover object-center w-full h-[230px] rounded-lg"
                                 src="https://images.pexels.com/photos/9300916/pexels-photo-9300916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                 alt="product" />
@@ -92,7 +93,8 @@
                             </div>
                         </div>
 
-                        <div class="p-2 md:max-w-xs duration-150 bg-white rounded-lg shadow cursor-pointer min-w-[350px] ">
+                        <div
+                            class="p-2 md:max-w-xs duration-150 bg-white rounded-lg shadow cursor-pointer min-w-[350px] ">
                             <img class="object-cover object-center w-full h-[230px] rounded-lg"
                                 src="https://images.pexels.com/photos/27038707/pexels-photo-27038707/free-photo-of-carretera-coche-vehiculo-transporte.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                 alt="product" />
@@ -128,7 +130,8 @@
                             </div>
                         </div>
 
-                        <div class="p-2 md:max-w-xs duration-150 bg-white rounded-lg shadow cursor-pointer min-w-[350px] ">
+                        <div
+                            class="p-2 md:max-w-xs duration-150 bg-white rounded-lg shadow cursor-pointer min-w-[350px] ">
                             <img class="object-cover object-center w-full h-[230px] rounded-lg"
                                 src="https://images.pexels.com/photos/28123191/pexels-photo-28123191/free-photo-of-coches-coche-vehiculo-prisa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                 alt="product" />
