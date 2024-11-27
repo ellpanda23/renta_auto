@@ -5,7 +5,9 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CarResource\Pages;
 use App\Filament\Resources\CarResource\RelationManagers;
 use App\Models\Car;
+use Carbon\Traits\Timestamp;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,22 +20,43 @@ class CarResource extends Resource
 {
     protected static ?string $model = Car::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-truck';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('brand')
-                ->required(),
+                Select::make('brand')
+                    ->options([
+                        'BWM' => 'BWM',
+                        'Ford' => 'Ford',
+                        'Mercedes-Benz' => 'Mercedes-Benz',
+                        'Porsche' => 'Porsche',
+                        'Toyota' => 'Toyota',
+                        'Tesla' => 'Tesla',
+                        'Volkswagen' => 'Volkswagen',
+                        'Honda' => 'Honda',
+                    ])
+                    ->native(condition: false)
+                    ->required(),
                 TextInput::make('model')
-                ->required(),
+                    ->required(),
                 TextInput::make('license_plate')
-                ->required(),
+                    ->required(),
                 TextInput::make('year')
-                ->required(),
+                    ->required(),
                 TextInput::make('capacity')
-                ->required(),
+                    ->required(),
+                Select::make('fuel_type')
+                    ->options([
+                        'Gasolina' => 'Gasolina',
+                        'Disel' => 'Disel',
+                        'Hybrid' => 'Hybrid',
+                        'Electric' => 'Electric',
+                    ]),
+                TextInput::make('daily_rate')
+                    -> inputMode('decimal')
+                    -> required(),
             ]);
     }
 
@@ -41,7 +64,13 @@ class CarResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('brand'),
+                Tables\Columns\TextColumn::make('model'),
+                Tables\Columns\TextColumn::make('license_plate'),
+                Tables\Columns\TextColumn::make('year'),
+                Tables\Columns\TextColumn::make('capacity'),
+                Tables\Columns\TextColumn::make('fuel_type'),
+                Tables\Columns\TextColumn::make('daily_rate'),
             ])
             ->filters([
                 //
