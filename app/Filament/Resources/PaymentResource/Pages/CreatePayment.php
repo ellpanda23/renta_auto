@@ -20,5 +20,13 @@ class CreatePayment extends CreateRecord
         $reservation->status = Reservation::CONFIRMED;
         $reservation->save(); // Guardar el cambio en la base de datos
 
+        if(($reservation->total_cost - $payment->amount) == 0)
+        {
+            $car = $reservation->car;
+            $car->is_available = false;
+            $car->save();
+        }
+
+        //2000.00 2000.00
     }
 }

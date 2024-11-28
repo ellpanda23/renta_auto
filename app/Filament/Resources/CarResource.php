@@ -6,9 +6,11 @@ use App\Filament\Resources\CarResource\Pages;
 use App\Models\Car;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
@@ -57,6 +59,7 @@ class CarResource extends Resource
                 TextInput::make('daily_rate')
                     ->inputMode('decimal')
                     ->required(),
+                Toggle::make('is_available'),
             ]);
     }
 
@@ -64,13 +67,24 @@ class CarResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('brand'),
-                Tables\Columns\TextColumn::make('model'),
-                Tables\Columns\TextColumn::make('license_plate'),
-                Tables\Columns\TextColumn::make('year'),
-                Tables\Columns\TextColumn::make('capacity'),
-                Tables\Columns\TextColumn::make('fuel_type'),
-                Tables\Columns\TextColumn::make('daily_rate'),
+                TextColumn::make('brand'),
+                TextColumn::make('model'),
+                TextColumn::make('license_plate'),
+                TextColumn::make('year'),
+                TextColumn::make('capacity'),
+                TextColumn::make('fuel_type'),
+                TextColumn::make('is_available')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        '1' => 'success',
+                        '0' => 'danger',
+                    })
+                    ->formatStateUsing(fn(string $state): string => match ($state) {
+                        '1' => 'Disponible',
+                        '0' => 'Ocupado',
+                        default => 'Desconocido',
+                    }),
+                TextColumn::make('daily_rate'),
             ])
             ->filters([
                 //

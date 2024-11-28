@@ -18,6 +18,7 @@ class Car extends Model
         'brand',
         'model',
         'license_plate',
+        'image_url',
         'year',
         'capacity',
         'fuel_type',

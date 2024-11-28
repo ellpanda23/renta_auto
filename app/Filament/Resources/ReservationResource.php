@@ -12,9 +12,12 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Support\RawJs;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -33,7 +36,22 @@ class ReservationResource extends Resource
                 Select::make('car_id')
                     ->required()
                     ->label('Auto')
-                    ->options(Car::all()->pluck('brand_model', 'id'))
+                    ->options(function ($get) {
+                        // Obtiene la reservación seleccionada
+                        $selectedCar = Car::find($get('car_id'));
+
+                        // Obtiene los carros disponibles
+                        $pendingCars = Car::where('is_available', true)
+                            ->get()
+                            ->pluck('brand_model', 'id');
+
+                        // Incluye el auto seleccionada si no está disponible
+                        if ($selectedCar && !$pendingCars->has($selectedCar->id)) {
+                            $pendingCars[$selectedCar->id] = $selectedCar->brand_model;
+                        }
+
+                        return $pendingCars;
+                    })
                     ->searchable(),
                 Select::make('customer_id')
                     ->required()
@@ -85,9 +103,17 @@ class ReservationResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                DeleteAction::make()
+                    ->successNotification(
+                        Notification::make()
+                            ->success()
+                            ->title('Reservacoin eliminada')
+                            ->body('La reservacion fue eliminada correctamente.'),
+                    )
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    ExportBulkAction::make(),
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);

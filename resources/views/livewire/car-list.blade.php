@@ -1,7 +1,6 @@
 <div>
-
     <div class="container">
-        <div class="absolute w-11/12 p-4 -mt-20 md:w-[1450px] card">
+        <div class="absolute w-11/12 p-4 -mt-20 md:w-[1150px] card">
 
             <div class="md:grid md:grid-cols-5 md:gap-6">
                 <div class="form-group">

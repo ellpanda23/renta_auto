@@ -9,171 +9,74 @@
                 <div class="max-w-screen-xl px-4 py-24 mx-auto text-center lg:py-56">
                     <h1
                         class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">
-                        Say hello to your next awesome vehicle
+                        Saluda a tu próximo y fantástico vehículo
                     </h1>
                     <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-                        Featuring Used, Wholesale and Salvage Cars, Trucks & SUVs for Sale
+                        Con autos, camionetas, autos electricos y de ultimo modelo completamente al alcance de tus manos.
                     </p>
                 </div>
             </section>
 
             @livewire('car-list')
 
-            <section class="sm:mt-12">
+            <section class="sm:mt-12 pt-[26rem]">
 
-                <div class="md:flex">
-                    <h1 class="px-2 text-3xl font-semibold text-gray-700 md:text-4xl">Explore best rental car makes</h1>
+                <div class="my-10 md:flex">
+                    <h1 class="px-2 text-3xl font-semibold text-gray-700 md:text-4xl">Explora las mejores marcas de coches de alquiler</h1>
                     <p class="px-2 text-xl font-light text-justify text-gray-600 md:px-12 md:text-2xl">
-                        Along with conventional advertising and velow ttthe line activities, organizations and corporate
-                        bodies have come to realize that they need to inves in a trade shows in order to create maximum
-                        recall for their product or brand name.
+                        Junto con la publicidad convencional y las actividades de venta a bajo precio, las organizaciones y entidades corporativas se han dado cuenta de que necesitan invertir en ferias comerciales para crear el máximo recuerdo de su producto o marca.
                     </p>
                 </div>
 
-                <div class="flex gap-4 overflow-x-auto md:grid md:grid-cols-4">
+                <div class="flex overflow-x-auto md:grid md:grid-cols-4">
 
-                    <div
-                        class="relative flex flex-col mt-6 bg-white border rounded-lg shadow-sm md:h-24 border-slate-200 w-80">
-                        <div class="items-center gap-4 p-4 md:flex">
-                            <img src="https://th.bing.com/th/id/R.84a2ffcc555d2f1f1d0a260e67c86b1a?rik=TceOmYgvu%2b03zw&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fToyota-Logo.png&ehk=kA4%2fv8Xw0nlFTYQtLSIytFJhbxS%2fKgO%2fSzowb1OCUbA%3d&risl=&pid=ImgRaw&r=0"
-                                alt="" class="h-12">
+                    <x-brand-card
+                        image='https://th.bing.com/th/id/R.84a2ffcc555d2f1f1d0a260e67c86b1a?rik=TceOmYgvu%2b03zw&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fToyota-Logo.png&ehk=kA4%2fv8Xw0nlFTYQtLSIytFJhbxS%2fKgO%2fSzowb1OCUbA%3d&risl=&pid=ImgRaw&r=0'
+                        brand='Toyota'
+                        price='1000'
+                    />
 
-                            <div class="">
-                                <p class="font-semibold leading-normal text-slate-600">
-                                    Toyota
-                                </p>
-                                <p class="font-light leading-normal text-slate-600">
-                                    Desde $1000/dia
-                                </p>
-                            </div>
+                    <x-brand-card
+                        image='https://th.bing.com/th/id/OIP.JltPEmEWEeRAdEQFrRlxjAHaC9?rs=1&pid=ImgDetMain'
+                        brand='Ford'
+                        price='1000'
+                    />
 
-                        </div>
-                    </div>
+                    <x-brand-card
+                        image='https://th.bing.com/th/id/OIP.poXr0DmZDNsgHjzAfqRMPgHaEK?rs=1&pid=ImgDetMain'
+                        brand='Chevrolet'
+                        price='1000'
+                    />
 
-                    <div
-                        class="relative flex flex-col mt-6 bg-white border rounded-lg shadow-sm md:h-24 border-slate-200 w-80">
-                        <div class="items-center gap-4 p-4 md:flex">
-                            <img src="https://th.bing.com/th/id/OIP.JltPEmEWEeRAdEQFrRlxjAHaC9?rs=1&pid=ImgDetMain"
-                                alt="" class="h-12">
+                    <x-brand-card
+                        image='https://www.carlogos.org/car-logos/honda-logo-2000-full-640.png'
+                        brand='Honda'
+                        price='1000'
+                    />
 
-                            <div>
-                                <p class="font-semibold leading-normal text-slate-600">
-                                    Ford
-                                </p>
-                                <p class="font-light leading-normal text-slate-600">
-                                    Desde $1000/dia
-                                </p>
-                            </div>
+                    <x-brand-card
+                        image='https://www.carlogos.org/car-logos/bmw-logo-2020-gray.png'
+                        brand='BMW'
+                        price='1000'
+                    />
 
-                        </div>
-                    </div>
+                    <x-brand-card
+                        image='https://www.carlogos.org/logo/Mercedes-Benz-logo-2011-640x369.jpg'
+                        brand='Mercedez Benz'
+                        price='1000'
+                    />
 
-                    <div
-                        class="relative flex flex-col mt-6 bg-white border rounded-lg shadow-sm md:h-24 border-slate-200 w-80">
-                        <div class="items-center gap-4 p-4 md:flex">
-                            <img src="https://th.bing.com/th/id/OIP.poXr0DmZDNsgHjzAfqRMPgHaEK?rs=1&pid=ImgDetMain"
-                                alt="" class="h-12">
+                    <x-brand-card
+                        image='https://www.carlogos.org/car-logos/tesla-logo-2007-full-640.png'
+                        brand='Tesla'
+                        price='1000'
+                    />
 
-                            <div>
-                                <p class="font-semibold leading-normal text-slate-600">
-                                    Chevrolet
-                                </p>
-                                <p class="font-light leading-normal text-slate-600">
-                                    Desde $1000/dia
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div
-                        class="relative flex flex-col mt-6 bg-white border rounded-lg shadow-sm md:h-24 border-slate-200 w-80">
-                        <div class="items-center gap-4 p-4 md:flex">
-                            <img src="https://www.carlogos.org/car-logos/honda-logo-2000-full-640.png" alt=""
-                                class="h-12">
-
-                            <div>
-                                <p class="font-semibold leading-normal text-slate-600">
-                                    Honda
-                                </p>
-                                <p class="font-light leading-normal text-slate-600">
-                                    Desde $1000/dia
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div
-                        class="relative flex flex-col mt-6 bg-white border rounded-lg shadow-sm md:h-24 border-slate-200 w-80">
-                        <div class="items-center gap-4 p-4 md:flex">
-                            <img src="https://www.carlogos.org/car-logos/bmw-logo-2020-gray.png" alt=""
-                                class="h-12">
-
-                            <div>
-                                <p class="font-semibold leading-normal text-slate-600">
-                                    BMW
-                                </p>
-                                <p class="font-light leading-normal text-slate-600">
-                                    Desde $1000/dia
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div
-                        class="relative flex flex-col mt-6 bg-white border rounded-lg shadow-sm md:h-24 border-slate-200 w-80">
-                        <div class="items-center gap-4 p-4 md:flex">
-                            <img src="https://www.carlogos.org/logo/Mercedes-Benz-logo-2011-640x369.jpg" alt=""
-                                class="h-12">
-
-                            <div>
-                                <p class="font-semibold leading-normal text-slate-600">
-                                    Mercedez Bens
-                                </p>
-                                <p class="font-light leading-normal text-slate-600">
-                                    Desde $1000/dia
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div
-                        class="relative flex flex-col mt-6 bg-white border rounded-lg shadow-sm md:h-24 border-slate-200 w-80">
-                        <div class="items-center gap-4 p-4 md:flex">
-                            <img src="https://www.carlogos.org/car-logos/tesla-logo-2007-full-640.png" alt=""
-                                class="h-12">
-
-                            <div>
-                                <p class="font-semibold leading-normal text-slate-600">
-                                    Tesla
-                                </p>
-                                <p class="font-light leading-normal text-slate-600">
-                                    Desde $1000/dia
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div
-                        class="relative flex flex-col mt-6 bg-white border rounded-lg shadow-sm md:h-24 border-slate-200 w-80">
-                        <div class="items-center gap-4 p-4 md:flex">
-                            <img src="https://www.carlogos.org/logo/Kia-logo-640x321.jpg" alt="" class="h-12">
-
-                            <div>
-                                <p class="font-semibold leading-normal text-slate-600">
-                                    KIA
-                                </p>
-                                <p class="font-light leading-normal text-slate-600">
-                                    Desde $1000/dia
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
+                    <x-brand-card
+                        image='https://www.carlogos.org/logo/Kia-logo-640x321.jpg'
+                        brand='KIA'
+                        price='1000'
+                    />
 
                 </div>
 
@@ -447,12 +350,20 @@
     </div>
 
 
+    <section class="container w-full">
+        <h1 class="my-4 text-3xl font-semibold text-gray-600">Nuestra ubicación</h1>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1921538.7411299984!2d-103.33106440624996!3d19.839726400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d185491bef10f%3A0x56eb3b5a81af9ce2!2sHappy%20Rent%20A%20Car!5e0!3m2!1ses-419!2smx!4v1732826177472!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" class="w-full" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
     <!-- component -->
     <footer class="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-100">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>
-                    <img src="https://th.bing.com/th/id/OIP.C0RMM8vZMP9vzBvFoylG4QHaHa?rs=1&pid=ImgDetMain" class="h-6 mr-5 sm:h-9" alt="Logo de la compañía" />
+                    <div class="flex">
+                        <img src="https://th.bing.com/th/id/OIP.C0RMM8vZMP9vzBvFoylG4QHaHa?rs=1&pid=ImgDetMain" class="h-6 mr-5 sm:h-9" alt="Logo de la compañía" />
+                        {{env('APP_NAME')}}
+                    </div>
                     <p class="max-w-xs mt-4 text-sm text-gray-600">
                         Descubre la libertad de viajar con nuestros autos de alquiler.
                         Calidad, comodidad y excelentes tarifas garantizadas.
@@ -518,7 +429,7 @@
                 </div>
             </div>
             <p class="mt-8 text-xs text-center text-gray-500">
-                &copy; 2024 Rent-A-Car. Todos los derechos reservados.
+                &copy; 2024 <a href="{{route('filament.admin.pages.dashboard')}}" >{{env('APP_NAME')}}</a>. Todos los derechos reservados.
             </p>
         </div>
     </footer>
