@@ -3,10 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PaymentResource\Pages;
-use App\Filament\Resources\PaymentResource\RelationManagers;
 use App\Models\Payment;
 use App\Models\Reservation;
-use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -15,8 +13,7 @@ use Filament\Support\RawJs;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class PaymentResource extends Resource
 {
@@ -73,7 +70,6 @@ class PaymentResource extends Resource
                 TextColumn::make('SKU'),
                 TextColumn::make('reservation.customer_reservation'),
                 TextColumn::make('amount'),
-
             ])
             ->filters([
                 //
@@ -83,6 +79,7 @@ class PaymentResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    ExportBulkAction::make(),
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
