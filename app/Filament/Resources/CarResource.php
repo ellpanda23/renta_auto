@@ -3,18 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CarResource\Pages;
-use App\Filament\Resources\CarResource\RelationManagers;
 use App\Models\Car;
-use Carbon\Traits\Timestamp;
-use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class CarResource extends Resource
 {
@@ -43,7 +39,7 @@ class CarResource extends Resource
                     ->required(),
                 TextInput::make('license_plate')
                     ->required(),
-                    TextInput::make('image_url')
+                TextInput::make('image_url')
                     ->url()
                     ->suffixIcon('heroicon-m-globe-alt')
                     ->required(),
@@ -59,8 +55,8 @@ class CarResource extends Resource
                         Car::ELECTRIC => 'Electric',
                     ]),
                 TextInput::make('daily_rate')
-                    -> inputMode('decimal')
-                    -> required(),
+                    ->inputMode('decimal')
+                    ->required(),
             ]);
     }
 
@@ -84,6 +80,7 @@ class CarResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    ExportBulkAction::make(),
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
