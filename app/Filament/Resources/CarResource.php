@@ -43,16 +43,20 @@ class CarResource extends Resource
                     ->required(),
                 TextInput::make('license_plate')
                     ->required(),
+                    TextInput::make('image_url')
+                    ->url()
+                    ->suffixIcon('heroicon-m-globe-alt')
+                    ->required(),
                 TextInput::make('year')
                     ->required(),
                 TextInput::make('capacity')
                     ->required(),
                 Select::make('fuel_type')
                     ->options([
-                        'Gasolina' => 'Gasolina',
-                        'Disel' => 'Disel',
-                        'Hybrid' => 'Hybrid',
-                        'Electric' => 'Electric',
+                        Car::GASOLINA => 'Gasolina',
+                        Car::DISEL => 'Disel',
+                        Car::HYBRID => 'Hybrid',
+                        Car::ELECTRIC => 'Electric',
                     ]),
                 TextInput::make('daily_rate')
                     -> inputMode('decimal')
